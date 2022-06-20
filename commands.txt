@@ -10,21 +10,26 @@
    
 3. Now, perform some changes in previous files and create another tag 1.0.1.
    perform changes in file: vim  file1.txt
-   create tag: git tag "1.0.1"
+   create tag: git tag "1.0.1" -a -m "release after modifying file1"
    
 4. Now, create another file file3 and create a tag 1.1.0.
    create file: touch file3.txt
-   create tag: git tag "1.1.0"
+   create tag: git tag "1.1.0" -a -m "release after creating file3"
    
 5. Now in 1.0.1 release, do some changes in existing files and create another tag 1.0.2.
    git checkout 1.0.1
    changes in files: vim file1.txt
-   git tag 1.0.2
+   git add file1.txt
+   git commit -m "modifying file1 again"
+   git tag 1.0.2 -a -m "release after again modifying file1"
    
 6. Also do some changes in release 1.1.0, create a tag for next release 1.1.1.
    git checkout 1.1.0
    vim file3.txt
+   git add file3.txt
+   git commit -m "edited file3"
    git tag "1.1.1" -a -m "next release"
+   
 7. push tags to github:
 	git push origin 1.0.0
         git push origin 1.0.1
